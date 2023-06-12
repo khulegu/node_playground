@@ -2,15 +2,22 @@
   "name": "node_playground",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hippo": "ts-node hippo_cards.ts",
+    "mnlawgpt": "ts-node mnlawgpt.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
     "p-queue": "^7.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.3",
+    "typescript": "^5.1.3"
   }
 }

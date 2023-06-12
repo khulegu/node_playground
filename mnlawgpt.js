@@ -3,8 +3,9 @@ import axios from "axios";
 
 const queue = new PQueue({ concurrency: 50 });
 let count = 0;
-let last = new Date();
-const lol = async (i) => {
+let last: Date = new Date();
+
+const task = async (i: number) => {
   const { data } = await axios.post(
     "https://mnlawgpt.vercel.app/api/similiarity",
     {
@@ -16,11 +17,11 @@ const lol = async (i) => {
   count++;
 
   if (count % 50 === 0) {
-    console.log(`Done: ${count}, ${new Date() - last}`);
+    console.log(`Done: ${count}, ${new Date().getTime() - last.getTime()}`);
     last = new Date();
   }
 };
 
 for (let i = 0; i < 100000; i++) {
-  queue.add(() => lol(i));
+  queue.add(() => task(i));
 }
